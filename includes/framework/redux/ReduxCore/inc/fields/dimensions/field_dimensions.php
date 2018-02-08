@@ -17,7 +17,23 @@
                 $this->parent = $parent;
                 $this->field  = $field;
                 $this->value  = $value;
-                
+            } //function
+
+            /**
+             * Field Render Function.
+             * Takes the vars and outputs the HTML for the field in the settings
+             *
+             * @since ReduxFramework 1.0.0
+             */
+            function render() {
+
+                /*
+                 * So, in_array() wasn't doing it's job for checking a passed array for a proper value.
+                 * It's wonky.  It only wants to check the keys against our array of acceptable values, and not the key's
+                 * value.  So we'll use this instead.  Fortunately, a single no array value can be passed and it won't
+                 * take a dump.
+                 */
+
                 // No errors please
                 $defaults = array(
                     'width'          => true,
@@ -43,16 +59,6 @@
                 if ( isset( $this->value['unit'] ) ) {
                     $this->value['units'] = $this->value['unit'];
                 }
-
-            } //function
-
-            /**
-             * Field Render Function.
-             * Takes the vars and outputs the HTML for the field in the settings
-             *
-             * @since ReduxFramework 1.0.0
-             */
-            function render() {
 
                 /*
                  * Acceptable values checks.  If the passed variable doesn't pass muster, we unset them
@@ -265,14 +271,9 @@
 
                 $units = isset( $this->value['units'] ) ? $this->value['units'] : "";
 
-                if (!is_array($this->field['mode'])) {
-                    $height = isset( $this->field['mode'] ) && ! empty( $this->field['mode'] ) ? $this->field['mode'] : 'height';
-                    $width  = isset( $this->field['mode'] ) && ! empty( $this->field['mode'] ) ? $this->field['mode'] : 'width';                   
-                } else {
-                    $height = $this->field['mode']['height'] != false ? $this->field['mode']['height'] : 'height';
-                    $width  = $this->field['mode']['width'] != false ? $this->field['mode']['width'] : 'width';
-                }
-                
+                $height = isset( $this->field['mode'] ) && ! empty( $this->field['mode'] ) ? $this->field['mode'] : 'height';
+                $width  = isset( $this->field['mode'] ) && ! empty( $this->field['mode'] ) ? $this->field['mode'] : 'width';
+
                 $cleanValue = array(
                     $height => isset( $this->value['height'] ) ? filter_var( $this->value['height'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) : '',
                     $width  => isset( $this->value['width'] ) ? filter_var( $this->value['width'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) : '',

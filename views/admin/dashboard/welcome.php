@@ -3,9 +3,9 @@
 			<div id="wpmcp-welcome-panel" class="welcome-panel">
 				<a id="wpmcp-welcome-panel-close" href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=wpmoviescore&amp;show_wpmcp_welcome_panel=1' ), 'show-wpmcp-welcome-panel', 'show_wpmcp_welcome_panel_nonce' ) ?>" class="welcome-panel-close" onclick="wpmcp_dashboard.update_screen_option( 'welcome_panel', false ); return false;"><span class="wpmolicon icon-no-alt"></span><?php _e( 'Dismiss', 'wpmoviescore' ); ?></a>
 				<div class="welcome-panel-content">
-					<h3><?php _e( 'Welcome to WordPress Movie Library!', 'wpmoviescore' ); ?></h3>
+					<h3><?php _e( 'Welcome to WordPress Movie Core Plugin!', 'wpmoviescore' ); ?></h3>
 					<p class="about-description">
-						<?php _e( 'Thank you for using WPMoviesCore. We made this plugin for movie lovers! Here are a few links to get you started.', 'wpmoviescore' ); ?>
+						<?php _e( 'Thank you for using WPMoviesCore.', 'wpmoviescore' ); ?>
 					</p>
 					<div class="welcome-panel-column-container">
 						<div class="welcome-panel-column">

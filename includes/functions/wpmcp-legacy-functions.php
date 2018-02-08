@@ -10,7 +10,7 @@
  * @author    Leo Gopal <charlie.merland@gmail.com>
  * @license   GPL-3.0
  * @link      http://digitlab.co.za
- * @copyright 2016 CaerCam.org
+ * @copyright 2018 Leo Gopal
  */
 
 if ( ! defined( 'ABSPATH' ) )

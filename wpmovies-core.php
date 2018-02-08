@@ -3,7 +3,7 @@
  * WordPress Movies Core Plugin
  *
  * WPMCP is a WordPress Plugin designed to handle a library of movies
- * WPMCP uses TMDb to gather movies' informations.
+ * WPMCP uses TMDb to gather movies' information.
  *
  * @package   WPMoviesCore
  * @author    Leo Gopal <leo@digitlab.co.za>
@@ -42,8 +42,6 @@ define( 'WPMCP_DEFAULT_POSTER_URL',     plugins_url( basename( __DIR__ ) ) . '/a
 define( 'WPMCP_DEFAULT_POSTER_PATH',    WPMCP_PATH . '/assets/img/no_poster{size}.jpg' );
 define( 'WPMCP_MAX_TAXONOMY_LIST',      50 );
 
-
-
 /**
  * Checks if the system requirements are met
  *
@@ -76,7 +74,7 @@ function wpmcp_requirements_error() {
 }
 
 /**
- * Prints an error that the system requirements weren't met.
+ * Loads translation capable setup.
  *
  * @since    1.0.1
  */
@@ -118,7 +116,7 @@ if ( wpmcp_requirements_met() ) {
 		require_once( WPMCP_PATH . 'includes/framework/redux/ReduxCore/framework.php' );
 	if ( ! isset( $wpmcp_settings ) )
 		require_once( WPMCP_PATH . 'includes/classes/class-wpmcp-redux.php' );
-	//require_once( WPMCP_PATH . 'includes/framework/redux/sample-config.php' );
+
 	require_once( WPMCP_PATH . 'includes/classes/class-wpmcp-cache.php' );
 	require_once( WPMCP_PATH . 'includes/classes/class-wpmcp-l10n.php' );
 	require_once( WPMCP_PATH . 'includes/classes/class-wpmcp-utils.php' );

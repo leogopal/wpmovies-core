@@ -27,16 +27,16 @@ if ( ! class_exists( 'WPMCP_Module' ) ) {
 
 		/**
 		 * Render an admin template
-		 * 
+		 *
 		 * Simple alias of WPMCP_Module::render_template() adding admin
 		 * views path and hooks.
 		 *
 		 * @since    2.0
-		 * 
-		 * @param    string    $default_template_path The path to the template, relative to the plugin's `views` folder
-		 * @param    array     $variables An array of variables to pass into the template's scope, indexed with the variable name so that it can be extract()-ed
-		 * @param    string    $require 'once' to use require_once() | 'always' to use require()
-		 * 
+		 *
+		 * @param    string $default_template_path The path to the template, relative to the plugin's `views` folder
+		 * @param    array $variables An array of variables to pass into the template's scope, indexed with the variable name so that it can be extract()-ed
+		 * @param    string $require 'once' to use require_once() | 'always' to use require()
+		 *
 		 * @return   string
 		 */
 		public static function render_admin_template( $default_template_path = false, $variables = array(), $require = 'once' ) {
@@ -47,20 +47,20 @@ if ( ! class_exists( 'WPMCP_Module' ) ) {
 		/**
 		 * Render a template
 		 *
-		 * Allows parent/child themes to override the markup by placing 
-		 * the a file named basename( $default_template_path ) in their 
-		 * root folder, and also allows plugins or themes to override the 
-		 * markup by a filter. Themes might prefer that method if they 
-		 * place their templates in sub-directories to avoid cluttering 
-		 * the root folder. In both cases, the theme/plugin will have 
+		 * Allows parent/child themes to override the markup by placing
+		 * the a file named basename( $default_template_path ) in their
+		 * root folder, and also allows plugins or themes to override the
+		 * markup by a filter. Themes might prefer that method if they
+		 * place their templates in sub-directories to avoid cluttering
+		 * the root folder. In both cases, the theme/plugin will have
 		 * access to the variables so they can fully customize the output.
 		 *
 		 * @since    1.2
-		 * 
-		 * @param    string    $default_template_path The path to the template, relative to the plugin's `views` folder
-		 * @param    array     $variables An array of variables to pass into the template's scope, indexed with the variable name so that it can be extract()-ed
-		 * @param    string    $require 'once' to use require_once() | 'always' to use require()
-		 * 
+		 *
+		 * @param    string $default_template_path The path to the template, relative to the plugin's `views` folder
+		 * @param    array $variables An array of variables to pass into the template's scope, indexed with the variable name so that it can be extract()-ed
+		 * @param    string $require 'once' to use require_once() | 'always' to use require()
+		 *
 		 * @return   string
 		 */
 		public static function render_template( $default_template_path = false, $variables = array(), $require = 'once', $admin = false ) {
@@ -70,8 +70,9 @@ if ( ! class_exists( 'WPMCP_Module' ) ) {
 			do_action( "wpmcp_render_{$admin}template_pre", $default_template_path, $variables );
 
 			$template_path = locate_template( 'wpmoviescore/' . $default_template_path, false, false );
-			if ( ! $template_path )
+			if ( ! $template_path ) {
 				$template_path = WPMCP_PATH . '/views/' . $default_template_path;
+			}
 
 			$template_path = apply_filters( "wpmcp_{$admin}template_path", $template_path );
 
@@ -80,15 +81,16 @@ if ( ! class_exists( 'WPMCP_Module' ) ) {
 				extract( $variables );
 				ob_start();
 
-				if ( 'always' == $require )
+				if ( 'always' == $require ) {
 					require( $template_path );
-				else
+				} else {
 					require_once( $template_path );
+				}
 
 				$template_content = apply_filters( "wpmcp_{$admin}template_content", ob_get_clean(), $default_template_path, $template_path, $variables );
-			}
-			else
+			} else {
 				$template_content = '';
+			}
 
 			do_action( "wpmcp_render_{$admin}template_after", $default_template_path, $variables, $template_path, $template_content );
 
@@ -98,7 +100,8 @@ if ( ! class_exists( 'WPMCP_Module' ) ) {
 		/**
 		 * Set the uninstallation instructions
 		 */
-		public static function uninstall() {}
+		public static function uninstall() {
+		}
 
 		/**
 		 * Constructor
@@ -108,7 +111,7 @@ if ( ! class_exists( 'WPMCP_Module' ) ) {
 		/**
 		 * Prepares sites to use the plugin during single or network-wide activation
 		 *
-		 * @param    bool    $network_wide
+		 * @param    bool $network_wide
 		 */
 		abstract public function activate( $network_wide );
 

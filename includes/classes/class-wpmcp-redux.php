@@ -200,32 +200,6 @@ if ( ! class_exists( 'WPMCP_Redux_Framework_config' ) ) {
 				// REMOVE
 			);
 
-			// SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
-			$this->args['share_icons'][] = array(
-				'url'   => 'https://github.com/wpmoviescore/wpmoviescore',
-				'title' => 'Visit us on GitHub',
-				'icon'  => 'wpmolicon icon-github'
-			);
-			$this->args['share_icons'][] = array(
-				'url'   => 'https://www.facebook.com/wpmoviescore',
-				'title' => 'Like us on Facebook',
-				'icon'  => 'wpmolicon icon-facebook'
-			);
-			$this->args['share_icons'][] = array(
-				'url'   => 'http://twitter.com/WPMoviesCore',
-				'title' => 'Follow us on Twitter',
-				'icon'  => 'wpmolicon icon-twitter'
-			);
-			$this->args['share_icons'][] = array(
-				'url'   => 'https://plus.google.com/+Wpmovielibraryplugin',
-				'title' => 'Join our circle on Google+',
-				'icon'  => 'wpmolicon icon-googleplus'
-			);
-			$this->args['share_icons'][] = array(
-				'url'   => 'http://wpmoviescore.com',
-				'title' => 'Find us on WPMoviesCore.com',
-				'icon'  => 'wpmolicon icon-wordpress'
-			);
 		}
 
 	}
