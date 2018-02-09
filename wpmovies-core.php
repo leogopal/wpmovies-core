@@ -171,8 +171,6 @@ if ( wpmcp_requirements_met() ) {
 		require_once( WPMCP_PATH . 'admin/class-dashboard-latest-movies-widget.php' );
 		require_once( WPMCP_PATH . 'admin/class-dashboard-most-rated-movies-widget.php' );
 		require_once( WPMCP_PATH . 'admin/class-dashboard-quickaction-widget.php' );
-		require_once( WPMCP_PATH . 'admin/class-dashboard-helper-widget.php' );
-		require_once( WPMCP_PATH . 'admin/class-dashboard-vendor-widget.php' );
 		require_once( WPMCP_PATH . 'admin/class-wpmcp-api.php' );
 		require_once( WPMCP_PATH . 'admin/class-wpmcp-api-wrapper.php' );
 		require_once( WPMCP_PATH . 'admin/class-wpmcp-diagnose.php' );
