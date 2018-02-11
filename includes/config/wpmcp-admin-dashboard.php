@@ -26,18 +26,6 @@ $wpmcp_dashboard_widgets = array(
 		'name'     => __( 'Quick Actions', 'wpmoviescore' ),
 		'location' => 'side'
 	),
-	'helper' => array(
-		'class'    => 'Helper',
-		'title'    => __( 'Help', 'wpmoviescore' ),
-		'name'     => __( 'Help', 'wpmoviescore' ),
-		'location' => 'side'
-	),
-	'vendor' => array(
-		'class'    => 'Vendor',
-		'title'    => __( 'Rate me!', 'wpmoviescore' ),
-		'name'     => __( 'Rate me!', 'wpmoviescore' ),
-		'location' => 'side'
-	),
 	'latest_movies' => array(
 		'class' => 'Latest_Movies',
 		'title' => __( 'Latest Movies', 'wpmoviescore' ),

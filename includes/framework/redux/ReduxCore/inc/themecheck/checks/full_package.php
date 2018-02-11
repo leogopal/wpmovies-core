@@ -52,6 +52,4 @@
         }
     }
 
-    $themechecks = array();
-    
     $themechecks[] = new Redux_Full_Package();

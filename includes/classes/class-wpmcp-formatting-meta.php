@@ -8,7 +8,7 @@
  * @author    Leo Gopal <leo@digitlab.co.za>
  * @license   GPL-3.0
  * @link      http://digitlab.co.za
- * @copyright 2016 CaerCam.org
+ * @copyright 2018 Leo Gopal
  */
 
 if ( ! class_exists( 'WPMCP_Formatting_Meta' ) ) :

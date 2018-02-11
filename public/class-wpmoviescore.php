@@ -85,10 +85,10 @@ if ( ! class_exists( 'WPMoviesCore' ) ) :
 		/**
 		 * Fired when the plugin is activated.
 		 * 
-		 * Restore previously converted contents. If WPMOLY was previously
+		 * Restore previously converted contents. If WPMCP was previously
 		 * deactivated or uninstalled using the 'convert' option, Movies and
 		 * Custom Taxonomies should still be in the database. If they are, we
-		 * convert them back to WPMOLY contents.
+		 * convert them back to WPMCP contents.
 		 * 
 		 * Call Movie Custom Post Type and Collections, Genres and Actors custom
 		 * Taxonomies' registering functions and flush rewrite rules to update
@@ -127,9 +127,9 @@ if ( ! class_exists( 'WPMoviesCore' ) ) :
 		/**
 		 * Fired when the plugin is deactivated.
 		 * 
-		 * When deactivatin/uninstalling WPMOLY, adopt different behaviors depending
+		 * When deactivating/uninstalling WPMCP, adopt different behaviors depending
 		 * on user options. Movies and Taxonomies can be kept as they are,
-		 * converted to WordPress standars or removed. Default is conserve on
+		 * converted to WordPress standards or removed. Default is conserve on
 		 * deactivation, convert on uninstall.
 		 *
 		 * @since    1.0
@@ -175,9 +175,26 @@ if ( ! class_exists( 'WPMoviesCore' ) ) :
 		 */
 		public function enqueue_styles() {
 
-			wp_enqueue_style( WPMCP_SLUG, WPMCP_URL . '/assets/css/public/wpmcp.css', array(), WPMCP_VERSION );
-			wp_enqueue_style( WPMCP_SLUG . '-flags', WPMCP_URL . '/assets/css/public/wpmcp-flags.css', array(), WPMCP_VERSION );
-			wp_enqueue_style( WPMCP_SLUG . '-font', WPMCP_URL . '/assets/fonts/wpmovielibrary/style.css', array(), WPMCP_VERSION );
+			wp_enqueue_style(
+				WPMCP_SLUG,
+				WPMCP_URL . '/assets/css/public/wpmcp.css',
+				array(),
+				WPMCP_VERSION
+			);
+
+			wp_enqueue_style(
+				WPMCP_SLUG . '-flags',
+				WPMCP_URL . '/assets/css/public/wpmcp-flags.css',
+				array(),
+				WPMCP_VERSION
+			);
+
+			wp_enqueue_style(
+				WPMCP_SLUG . '-font',
+				WPMCP_URL . '/assets/fonts/wpmovielibrary/style.css',
+				array(),
+				WPMCP_VERSION
+			);
 		}
 
 		/**
@@ -187,9 +204,17 @@ if ( ! class_exists( 'WPMoviesCore' ) ) :
 		 */
 		public function enqueue_scripts() {
 
-			wp_enqueue_script( WPMCP_SLUG, WPMCP_URL . '/assets/js/public/wpmcp.js', array( 'jquery' ), WPMCP_VERSION, true );
+			wp_enqueue_script(
+				WPMCP_SLUG,
+				WPMCP_URL . '/assets/js/public/wpmcp.js',
+				array( 'jquery' ),
+				WPMCP_VERSION,
+				true
+			);
+
 			wp_localize_script(
-				WPMCP_SLUG, 'wpmcp',
+				WPMCP_SLUG,
+				'wpmcp',
 				array(
 					'lang' => array(
 						'grid' => __( 'grid', 'wpmoviescore' )
@@ -268,7 +293,6 @@ if ( ! class_exists( 'WPMoviesCore' ) ) :
 		 * @since    1.0
 		 */
 		private static function _uninstall() {
-
 			WPMCP_Utils::uninstall();
 			WPMCP_Movies::uninstall();
 			WPMCP_Collections::uninstall();
